@@ -1,0 +1,13 @@
+# read design 
+read_verilog Q6.sv
+
+# generic synthesis
+synth -top Q6
+
+# mapping to mycells.lib
+dfflibmap -liberty mycells.lib
+abc -liberty mycells.lib
+clean
+
+# write synthesized design
+write_verilog synth.v
